@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/CS Learning/ps4/ps4.py.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v10">
+<meta name="syntax" content="python">
+<meta name="settings" content="number_lines,use_css,expand_tabs">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #ffffff; background-color: #808080; }
+body { font-family: monospace; color: #ffffff; background-color: #808080; }
+.lnr { color: #ffff00; font-weight: bold; }
+.Error { color: #ffffff; background-color: #ff6060; font-weight: bold; }
+.Special { color: #ff6060; font-weight: bold; }
+.Folded { color: #8080ff; background-color: #ffffff; }
+.Constant { color: #ff40ff; font-weight: bold; }
+.Statement { color: #ffff00; font-weight: bold; }
+.PreProc { color: #8080ff; font-weight: bold; }
+.Comment { color: #00ffff; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr">  1 </span><span class="Comment"># 6.00 Problem Set 4</span>
+<span class="lnr">  2 </span><span class="Comment">#</span>
+<span class="lnr">  3 </span><span class="Comment"># Caesar Cipher Skeleton</span>
+<span class="lnr">  4 </span><span class="Comment">#</span>
+<span class="lnr">  5 </span><span class="PreProc">import</span> string
+<span class="lnr">  6 </span><span class="PreProc">import</span> random
+<span class="lnr">  7 </span>
+<span class="lnr">  8 </span>WORDLIST_FILENAME <span class="Statement">=</span> <span class="Constant">&quot;words.txt&quot;</span>
+<span class="lnr">  9 </span>
+<span class="lnr"> 10 </span><span class="Comment"># -----------------------------------</span>
+<span class="lnr"> 11 </span><span class="Comment"># Helper code</span>
+<span class="lnr"> 12 </span><span class="Comment"># (you don't need to understand this helper code)</span>
+<span class="Folded"> 13 def load_words():…                                                                                                             16… ----------------------------</span>
+<span class="lnr"> 30 </span>
+<span class="lnr"> 31 </span>wordlist <span class="Statement">=</span> load_words()
+<span class="lnr"> 32 </span>
+<span class="Folded"> 33 def is_word(wordlist, word):…                                                                                                   2… ----------------------------</span>
+<span class="lnr"> 36 </span><span class="Constant">wordlist: list of words in the dictionary.  word: a possible word.  returns True if word is in wordlist.  Example: &gt;&gt;&gt; is_word(wordlist, 'bat') returns True</span>
+<span class="lnr"> 37 </span><span class="Special">    &gt;&gt;&gt; is_word(wordlist, 'asdf') returns</span>
+<span class="lnr"> 38 </span><span class="Special">    False</span>
+<span class="lnr"> 39 </span><span class="Special">    </span><span class="Constant">&quot;&quot;&quot;</span>
+<span class="Folded"> 40     word = word.lower()…                                                                                                        3… ----------------------------</span>
+<span class="Folded"> 44 def random_word(wordlist):…                                                                                                     8… ----------------------------</span>
+<span class="Folded"> 53 def random_string(wordlist, n):…                                                                                                8… ----------------------------</span>
+<span class="Folded"> 62 def random_scrambled(wordlist, n):…                                                                                            17… ----------------------------</span>
+<span class="Folded"> 80 def get_fable_string():…                                                                                                        8… ----------------------------</span>
+<span class="lnr"> 89 </span>
+<span class="lnr"> 90 </span><span class="Comment"># (end of helper code)</span>
+<span class="lnr"> 91 </span><span class="Comment"># -----------------------------------</span>
+<span class="lnr"> 92 </span>
+<span class="lnr"> 93 </span><span class="Comment">#</span>
+<span class="lnr"> 94 </span><span class="Comment"># Problem 1: Encryption</span>
+<span class="lnr"> 95 </span><span class="Comment">#</span>
+<span class="Folded"> 96 def build_coder(shift):…                                                                                                       22… ----------------------------</span>
+<span class="Folded">119 def build_encoder(shift):…                                                                                                     28… ----------------------------</span>
+<span class="Folded">148 def build_decoder(shift):…                                                                                                     29… ----------------------------</span>
+<span class="lnr">178 </span>
+<span class="Folded">179 def apply_coder(text, coder):…                                                                                                 15… ----------------------------</span>
+<span class="lnr">195 </span>
+<span class="Folded">196 def apply_shift(text, shift):…                                                                                                 18… ----------------------------</span>
+<span class="lnr">215 </span><span class="Comment">#</span>
+<span class="lnr">216 </span><span class="Comment"># Problem 2: Codebreaking.</span>
+<span class="lnr">217 </span><span class="Comment">#</span>
+<span class="Folded">218 def find_best_shift(wordlist, text):…                                                                                          17… ----------------------------</span>
+<span class="lnr">236 </span><span class="Comment">#</span>
+<span class="lnr">237 </span><span class="Comment"># Problem 3: Multi-level encryption.</span>
+<span class="lnr">238 </span><span class="Comment">#</span>
+<span class="Folded">239 def apply_shifts(text, shifts):…                                                                                               17… ----------------------------</span>
+<span class="lnr">257 </span><span class="Comment">#</span>
+<span class="lnr">258 </span><span class="Comment"># Problem 4: Multi-level decryption.</span>
+<span class="lnr">259 </span><span class="Comment">#</span>
+<span class="lnr">260 </span>
+<span class="lnr">261 </span>
+<span class="Folded">262 def find_best_shifts(wordlist, text):…                                                                                         28… ----------------------------</span>
+<span class="Folded">291 def find_best_shifts_rec(wordlist, text, start):…                                                                              15… ----------------------------</span>
+<span class="lnr">307 </span>
+<span class="Folded">308 def decrypt_fable():…                                                                                                          11… ----------------------------</span>
+<span class="lnr">320 </span>
+<span class="lnr">321 </span>
+<span class="lnr">322 </span><span class="Error">    </span>
+<span class="lnr">323 </span><span class="Comment">#What is the moral of the story?</span>
+<span class="lnr">324 </span><span class="Comment">#</span>
+<span class="lnr">325 </span><span class="Comment">#</span>
+<span class="lnr">326 </span><span class="Comment">#</span>
+<span class="lnr">327 </span><span class="Comment">#</span>
+<span class="lnr">328 </span><span class="Comment">#</span>
+<span class="lnr">329 </span>
+</pre>
+</body>
+</html>
