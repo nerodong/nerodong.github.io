@@ -231,9 +231,8 @@ def apply_coder(text, coder):
     print "'",codecs,"'"
 
     return codecs
-for i in range(27):
 
-    apply_coder('I love You!!', build_coder(i))
+apply_coder("I love You!!", build_coder(r))
 
 def apply_shift(text, shift):
     """
@@ -276,29 +275,14 @@ def find_best_shift(wordlist, text):
     >>> apply_coder(s, build_decoder(8)) returns
     'Hello, world!'
     """
-    #for i in range(27):
+    Guessbag = {}  # 27 probablistic guesses in a lists
+
+    for i in range(27):
 
 
 #
 # Problem 3: Multi-level encryption.
 #
-def apply_shifts(text, shifts):
-    """
-    Applies a sequence of shifts to an input text.
-
-    text: A string to apply the Ceasar shifts to
-    shifts: A list of tuples containing the location each shift should
-    begin and the shift offset. Each tuple is of the form (location,
-    shift) The shifts are layered: each one is applied from its
-    starting position all the way through the end of the string.
-    returns: text after applying the shifts to the appropriate
-    positions
-
-    Example:
-    >>> apply_shifts("Do Androids Dream of Electric Sheep?", [(0,6), (3, 18), (12, 16)])
-    'JufYkaolfapxQdrnzmasmRyrpfdvpmEurrb?'
-    """
-    ### TODO.
 
 #
 # Problem 4: Multi-level decryption.
