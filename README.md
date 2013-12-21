@@ -9,7 +9,7 @@ For all usage and documentation please see: <http://jekyllbootstrap.com>
 
 ## Version
 
-0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
+0.3.0 - stable and versoned using [semantic versioning](http://semver.org/).
 
 **NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
 However, the actual API has not changed at all.
