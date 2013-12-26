@@ -4,7 +4,7 @@ title: Something about Me
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
-
+{% include JB/analytics-providers/google %}
 Nero Dong is an active data envagelist on Internet playground. His background mainly based on
 Communication Science and Market Research. Currently He is hunting for job in Shenzhen.
 His spectrum of interest lies in media & psychology, society and new media, Free flow of 
