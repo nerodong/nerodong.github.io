@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>九型人格简易测试</title>
+  <style type="text/css">
+  	body {
+  		padding: 20px;
+  	}
+  	#select-list label {
+  		display: block;
+  		line-height: 30px;
+  		cursor: pointer;
+  	}
+  	h1 small {
+  		font-size: 16px;
+  		color: #467b88;
+  	}
+  </style>
+</head>
+<body>
+
+	<h1>
+		九重人格测试
+		<small>统计结果见页面底部</small>
+	</h1>
+
+	
+  <div id="select-list"></div>
+
+  <div id="result">
+  	<h3>测试结果统计：</h3>
+  </div>
+
+  <script>
+
+    var obj = {}
+    Object.defineProperty(obj, 'data', {
+    	value: [
+			  {text: '我很容易迷惑', value: 9},
+			  {text: '我不想成为一个喜欢批评的人，但很难做到', value: 1},
+			  {text: '我喜欢研究宇宙的道理、哲理', value: 5},
+			  {text: '我很注意自己是否年轻，因为那是找乐子的本钱', value: 7},
+			  {text: '我喜欢独立自主，一切靠自己', value: 8},
+			  {text: '当我有困难时，我会试着不让人知道', value: 2},
+			  {text: '被人误解对我而言是一件特别痛苦的事儿', value: 4},
+			  {text: '施比受会给我更大的满足感', value: 2},
+			  {text: '我常常设想最糟糕的结果而使自己陷入苦恼之中', value: 6},
+			  {text: '我常常试探或考验朋友、伴侣的忠诚', value: 6},
+			  {text: '我看不起那些不像我一样坚强的人,有时我会用种种方式差辱', value: 8},
+			  {text: '身体上的舒适对我非常重要', value: 9},
+			  {text: '我能触碰生活中的悲伤和不幸', value: 4},
+			  {text: '别人不能完成他的分内事,会我失望和愤怒', value: 1},
+			  {text: '我时常拖延问题,不去解决', value: 9},
+			  {text: '我喜欢戏剧性、多彩多姿的生活', value: 7},
+			  {text: '我认为自己非常不完善', value: 4},
+			  {text: '我对感官的需求特别强烈,喜欢美食、服装、身体的触觉刺激，并纵情享乐', value: 7},
+			  {text: '当别人请教我一些问题,我会巨细无遗地分析得很清楚', value: 5},
+			  {text: '我习惯推销自己,从不觉得难为情', value: 3},
+			  {text: '有时我会放纵和做出僭越的事', value: 7},
+			  {text: '帮助不到别人会让我觉得痛苦', value: 2},
+			  {text: '我不喜欢人家问我广泛、笼统的问题。', value: 5},
+			  {text: '在某方面我有放纵的倾向(例如食物、药物等)。', value: 8},
+			  {text: '我宁愿适应别人,包括我的伴倡,而不会反抗他们。', value: 9},
+			  {text: '我最不喜欢的一件事就是虚伪。', value: 6},
+			  {text: '我知错能改,但由于执著好强,周围的人还是感觉到压力', value: 8},
+			  {text: '我常觉得很多事情都很好玩,很有趣,人生真是快乐。', value: 7},
+			  {text: '我有时很欣赏自己充满权威,有时却又优柔寡断,依赖别人。', value: 6},
+			  {text: '我习惯付出多于接受。', value: 2},
+			  {text: '面对威胁时,我一是变得焦虑,一是对抗迎面而来的危险。', value: 6},
+			  {text: '我通常是等别人来接近我,而不是我去接近他们。', value: 5},
+			  {text: '我喜欢当主角,希望得到大家的注意。', value: 3},
+			  {text: '别人批评我,我也不会回应和辩解,因为我不想发生任何争执与冲突', value: 9},
+			  {text: '我有时期待别人的指导,有时却忽略别人的忠告径直去做我想做的事。', value: 6},
+			  {text: '我经常忘记自己的需要。', value: 9},
+			  {text: '在重大危机中,我通常能克服我对自己的质疑和内心的焦虑。', value: 6},
+			  {text: '我是一个天生的推销员,说服别人对我来说是一件轻易的事。', value: 3},
+			  {text: '我不相信一个我一直都无法了解的人。', value: 9},
+			  {text: '我爱依惯例行事,不大喜欢改变。', value: 8},
+			  {text: '我很在乎家人,在家中表现得忠诚和包容。', value: 9},
+			  {text: '我被动而优柔寡断。', value: 5},
+			  {text: '我很有包容力,彬彬有礼,但跟人的感情互动不深。', value: 5},
+			  {text: '我沉默寡言,好像不会关心别人似的。', value: 8},
+			  {text: '当沉浸在工作或我擅长的领域时,别人会觉得我冷酷无情。', value: 6},
+			  {text: '我常常保持警觉。', value: 6},
+			  {text: '我不喜欢要对人尽义务的感觉。', value: 5},
+			  {text: '如果不能完美的表态，我宁愿不说', value: 5},
+			  {text: '我的计划比我实际完成的还要多。', value: 7},
+			  {text: '我野心勃勃,喜欢挑战和登上高峰的经验。', value: 8},
+			  {text: '我倾向于独断专行并自己解决问题', value: 5},
+			  {text: '我很多时候感到被遗弃', value: 4},
+			  {text: '我常常表现得十分忧郁的样子,充满痛苦而且内向', value: 4},
+			  {text: '初见陌生人时,我会表现得很冷漠、高傲。', value: 4},
+			  {text: '我的面部表情严肃而生硬。', value: 1},
+			  {text: '我很飘忽,常常不知自己下一刻想要什么。', value: 4},
+			  {text: '我常对自己挑剔,期望不断改善自己的缺点,以成为一个完美的人。', value: 1},
+			  {text: '我感受特别深刻,并怀疑那些总是很快乐的人。', value: 4},
+			  {text: '我做事有效率,也会找捷径,模仿力特强。', value: 3},
+			  {text: '我讲理、重实用', value: 1},
+			  {text: '我有很强的创造天分和想象力,喜欢将事情重新整合。', value: 4},
+			  {text: '我不要求得到很多的注意力。', value: 9},
+			  {text: '我喜欢每件事都井然有序,但别人会认为我过分执著。', value: 1},
+			  {text: '我渴望拥有完美的心灵伴侣。', value: 4},
+			  {text: '我常夸耀自己,对自己的能力十分有信心。', value: 3},
+			  {text: '如果周遭的人行为太过分时,我准会让他难堪。', value: 8},
+			  {text: '我外向、精力充沛,喜欢不断追求成就,这使我的自我感觉十分良好。', value: 3},
+			  {text: '我是一位忠实的朋友和伙伴', value: 6},
+			  {text: '我知道如何让别人喜欢我。', value: 2},
+			  {text: '我很少看到别人的功劳和好处。', value: 3},
+			  {text: '我很容易知道别人的功劳和好处', value: 2},
+			  {text: '我嫉妒心强喜欢跟别人比较', value: 3},
+			  {text: '我对别人做的事总是不放心,批评一番后,自己会动手再做。', value: 1},
+			  {text: '别人会说我常带着面具做人。', value: '3'},
+			  {text: '有时我会激怒对方,引来莫名其妙的吵架,其实我是想试探对方爱不爱我', value: '6'},
+			  {text: '我会极力保护我所爱的人。', value: 8},
+			  {text: '我常常刻意保持兴奋的情绪。', value: 3},
+			  {text: '我只喜欢与有趣的人为友,对一些闷蛋却懒得交往,即使他们看来很有深度。', value: 7},
+			  {text: '我常往外跑,四处帮助别人。', value: 2},
+			  {text: '有时我会讲求效率而牺牲完美和原则', value: 3},
+			  {text: '我似乎不太懂得幽默,没有弹性。', value: 1},
+			  {text: '我待人热情而有耐性。', value: 2},
+			  {text: '在人群中我时常感到害羞和不安。', value: 5},
+			  {text: '我喜欢效率,讨厌拖泥带水。', value: 8},
+			  {text: '帮助别人达致快乐和成功是我重要的成就。', value: 2},
+			  {text: '付出时,别人若不欣然接纳,我便会有挫折感。', value: 2},
+			  {text: '我的肢体硬邦邦的,不习惯别人热情的付出', value: 1},
+			  {text: '我对大部分的社交集会不太有兴趣,除非那是我熟识的和喜爱的人。', value: 5},
+			  {text: '很多时候我会有强烈的寂寞感。', value: 2},
+			  {text: '人们很乐意向我表白他们所遭遇的问题。', value: 2},
+			  {text: '我不但不会说甜言蜜语,而且别人会觉得我唠叨不停。', value: 1},
+			  {text: '我常担心自由被剥夺,因此不爱作承诺。', value: 7},
+			  {text: '我喜欢告诉别人我所做的事和所知的一切。', value: 3},
+			  {text: '我很容易认同别人为我所做的事和所知的一切。', value: 9},
+			  {text: '我要求光明正大,为此不惜与人发生冲突。', value: 8},
+			  {text: '我很有正义感,有时会支持不利的一方。', value: 8},
+			  {text: '我注重小节而效率不高。', value: 1},
+			  {text: '我容易感到沮丧和麻木更多于愤怒。', value: 9},
+			  {text: '我不喜欢那些侵略性或过度情绪化的人。', value: 5},
+			  {text: '我非常情绪化,一天的喜怒哀乐多变。', value: 4},
+			  {text: '我不想别人知道我的感受与想法,除非我告诉他们。', value: 5},
+			  {text: '我喜欢刺激和紧张的关系,而不是稳定和依赖的关系。', value: 1},
+			  {text: '我很少用心去听别人的心情,只喜欢说说俏皮话和笑话。', value: 7},
+			  {text: '我是循规蹈矩的人,秩序对我十分有意义。', value: 1},
+			  {text: '我很难找到一种我真正感到被爱的关系。', value: 4},
+			  {text: '假如我想要结束一段关系,我不是直接告诉对方就是激怒他来让他离开我。', value: 1},
+			  {text: '我温和平静,不自夸,不爱与人竞争。', value: 9},
+			  {text: '我有时善良可爱,有时又粗野暴躁,很难捉摸。', value: 9}
+			]
+    })
+    Object.defineProperty(obj, 'selected', {
+    	enumerable: true,
+    	set: function (objVal) {
+    		if (!this.value) {
+	    		objVal.checked && (this.value = [objVal.value])
+    		} else {
+    			objVal.checked ? this.value.push(objVal.value) : this.value.splice(this.value.indexOf(objVal.value), 1)
+    		}
+    		setResult()
+    	},
+    	get: function () {
+    		return this.value
+    	}
+    })
+
+    Object.defineProperty(obj, 'result', {
+    	get () {
+    		const rs = new Array(9)
+    		for (var i = 0, len = this.selected.length; i < len; i++) {
+    			const index = this.selected[i]
+    			const tmp = this.data[index].value
+    			rs[tmp - 1] === undefined ? rs[tmp - 1] = 1 : rs[tmp - 1]++
+    		}
+    		return rs
+    	}
+    })
+
+    var domWrap = document.getElementById('select-list')
+  	domWrap.appendChild(getSelectList())
+  	initEvent()
+
+   	function getSelectList () {
+   		var fragement = document.createElement('div')
+   		const data = obj.data
+   		for (var i = 0, len = data.length; i < len; i++) {
+   			var labelDom = document.createElement('label')
+   			labelDom.innerHTML = '<input class="checkbox" type="checkbox" name="personality" value="'+ i +' data-value='+ data[i].value +' ">'+ data[i].text +''
+   			fragement.appendChild(labelDom)
+   		}
+   		return fragement
+   	}
+
+    function getSelected (doms) {
+	    var selected = []
+	    for (var i = 0, len = doms.length; i < len; i++) {
+	    	if (doms[i].checked) {
+	    		selected.push(doms[i].value)
+	    	}
+	    }
+    }
+
+    function initEvent () {
+	    var checkboxDoms = document.querySelectorAll('input[type=checkbox][name=personality]')
+	    console.log(checkboxDoms)
+	    checkboxDoms.forEach((item, index) => {
+	    	item.addEventListener('change', (e) => {
+	    		obj.selected = {checked: e.target.checked, value: index}
+    			console.log(obj.selected, obj.result)
+	    	})
+	    })
+    }
+
+    function getResult () {
+    	const result = ['<h3>测试结果统计：</h3>']
+    	for (var i = 0, len = obj.result.length; i < len; i++) {
+    		result.push('<div>'+ (i + 1) +'型人格数量：'+ (obj.result[i] || 0) +'</div>')
+    	}
+    	return result.join('')
+    }
+
+    function setResult () {
+    	var result = document.getElementById('result')
+	  	result.innerHTML = getResult()
+    }
+
+  </script>
+</body>
+</html>
